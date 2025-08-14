@@ -1,0 +1,18 @@
+\begin{table}
+\caption{Training Hyperparameters by Model}
+\label{tab:training_hyperparams_summary}
+\begin{tabular}{llcccccccccclll}
+\toprule
+Question & Response Type & Sentence Augmentations & Word Replacements & Validation Size & Iterations & Learning Rate & Depth & L2 Leaf Regularization & Random Strength & Bagging Temperature & Loss Function & Evaluation Metric \\
+\midrule
+Q8 & Binary & 3 & 1 & 0.400000 & 2000 & 0.070000 & 5 & 30 & 10 & 10.000000 & Logloss & F1 \\
+Q11 & Binary & 3 & 1 & 0.300000 & 2000 & 0.010000 & 5 & 30 & 7 & 15.000000 & Logloss & F1 \\
+Q17 & Binary & 7 & 1 & 0.500000 & 2000 & 0.012000 & 4 & 135 & 15 & 0.700000 & Logloss & F1 \\
+Q65 & Ordinal & 3 & 1 & 0.270000 & 2000 & 0.008500 & 4 & 32 & 9 & 0.400000 & MultiClass & MultiClass \\
+Q69 & Ordinal & 2 & 1 & 0.450000 & 2000 & 0.060000 & 5 & 50 & 2 & 5.000000 & MultiClass & MultiClass \\
+Q70 & Ordinal & 5 & 1 & 0.300000 & 2000 & 0.030000 & 5 & 20 & 7 & 6.000000 & MultiClass & MultiClass \\
+Q152, Q153 & Categorical & 3 & 1 & 0.400000 & 2000 & 0.050000 & 8 & 10 & 0 & 0.000000 & MultiClass & MultiClass \\
+Q154, Q155 & Categorical & 3 & 1 & 0.400000 & 2000 & 0.050000 & 8 & 10 & 0 & 0.000000 & MultiClass & MultiClass \\
+\bottomrule
+\end{tabular}
+\end{table}

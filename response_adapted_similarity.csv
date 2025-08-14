@@ -1,0 +1,131 @@
+response_hypothesis,true_qid,true_scale,matched_qid,matched_scale,similarity_score
+"over the coming years, the government should focus on ensuring that people have more say about how things are done at their jobs and in their communities.",Q152,3,Q152,3,0.8015
+"Over the coming years, the government should also focus on ensuring that people have more say about how things are done at their jobs and in their communities.",Q153,3,Q152,3,0.7794
+"over the coming years, the government should emphasize a high level of economic growth.",Q152,1,Q152,1,0.7738
+maintaining order in the nation is of utmost importance.,Q154,1,Q154,1,0.7716
+Maintaining order in the nation is an additional priority.,Q155,1,Q154,1,0.7675
+"Over the coming years, the government should also emphasize a high level of economic growth.",Q153,1,Q152,1,0.7604
+"Over the coming years, the government should prioritize ensuring the country has strong defense forces.",Q152,2,Q152,2,0.7578
+one has a great deal of confidence in the armed forces.,Q65,1,Q65,2,0.7541
+"Over the coming years, the government should also prioritize ensuring the country has strong defense forces.",Q153,2,Q152,2,0.7472
+one has quite a lot of confidence in the armed forces.,Q65,2,Q65,2,0.743
+Giving people more say in important government decisions is an additional priority.,Q155,2,Q152,3,0.7317
+protecting freedom of speech is of utmost importance.,Q154,4,Q154,4,0.7275
+accepting a bribe in the course of one's duties is never justifiable.,Q181,1,Q181,1,0.7245
+accepting a bribe in the course of one's duties is seldom justifiable.,Q181,4,Q181,1,0.7228
+giving people more say in important government decisions is of utmost importance.,Q154,2,Q152,3,0.721
+accepting a bribe in the course of one's duties is rarely justifiable.,Q181,5,Q181,1,0.7185
+religiosity is an inseparable part of one's identity.,Q173,1,Q6,2,0.7177
+one has some confidence in the armed forces.,Q65,3,Q65,2,0.7146
+religion is rather important in life.,Q6,2,Q6,2,0.7109
+accepting a bribe in the course of one's duties is almost never justifiable.,Q181,2,Q181,1,0.7096
+accepting a bribe in the course of one's duties is hardly ever justifiable.,Q181,3,Q181,1,0.706
+religion is very important in life.,Q6,1,Q6,1,0.6967
+"under employment scarcity, men should have more right to a job than women.",Q33_3,1,Q33_3,2,0.6965
+Protecting freedom of speech is an additional priority.,Q155,4,Q154,4,0.6902
+fighting rising prices is of utmost importance.,Q154,3,Q154,3,0.6876
+Fighting rising prices is an additional priority.,Q155,3,Q154,3,0.6797
+it is important for children to be independent.,Q8,1,Q8,1,0.6789
+"under employment scarcity, men should not have more right to a job than women.",Q33_3,2,Q33_3,2,0.6729
+abortion is occasionally justifiable.,Q184,6,Q184,2,0.6646
+religiosity is not a central part of one's identity.,Q173,2,Q6,4,0.663
+abortion is seldom justifiable.,Q184,4,Q184,1,0.6613
+abortion is sometimes justifiable.,Q184,7,Q184,1,0.6592
+"in the future, people showing greater respect for authority would be neither a good nor a bad thing.",Q45,2,Q45,2,0.6589
+divorce is seldom justifiable.,Q185,4,Q185,4,0.6566
+abortion is rarely justifiable.,Q184,5,Q184,1,0.6497
+abortion is never justifiable.,Q184,1,Q184,1,0.6476
+abortion is often justifiable.,Q184,8,Q184,1,0.6475
+abortion is hardly ever justifiable.,Q184,3,Q184,1,0.6475
+divorce is rarely justifiable.,Q185,5,Q185,4,0.6449
+homosexuality is sometimes justifiable.,Q182,7,Q182,9,0.641
+homosexuality is occasionally justifiable.,Q182,6,Q182,9,0.6395
+abortion is almost never justifiable.,Q184,2,Q184,1,0.6375
+"in the future, people should show greater respect for authority.",Q45,1,Q45,3,0.6372
+"Over the coming years, the government should prioritize work to make the nation's cities and countryside more beautiful.",Q152,4,Q152,4,0.6352
+divorce is occasionally justifiable.,Q185,6,Q185,4,0.6312
+men do not necessarily make better political leaders than women do.,Q29,3,Q29,4,0.631
+divorce is hardly ever justifiable.,Q185,3,Q185,4,0.6266
+homosexuality is often justifiable.,Q182,8,Q182,9,0.6261
+accepting a bribe in the course of one's duties is occasionally justifiable.,Q181,6,Q181,3,0.6242
+divorce is sometimes justifiable.,Q185,7,Q185,7,0.6193
+one has little or no confidence in the justice system.,Q70,4,Q70,4,0.6189
+accepting a bribe in the course of one's duties is sometimes justifiable.,Q181,7,Q181,10,0.618
+divorce is often justifiable.,Q185,8,Q185,7,0.6166
+divorce is almost never justifiable.,Q185,2,Q185,4,0.6162
+one has some confidence in the justice system.,Q70,3,Q70,2,0.6162
+one has some confidence in the police.,Q69,3,Q69,2,0.6161
+abortion is almost always justifiable.,Q184,9,Q184,1,0.6158
+one has quite a lot of confidence in the police.,Q69,2,Q69,2,0.6133
+"Over the coming years, the government should also prioritize work to make the nation's cities and countryside more beautiful.",Q153,4,Q152,4,0.6129
+one has a great deal of confidence in the police.,Q69,1,Q69,1,0.611
+one has a great deal of confidence in the justice system.,Q70,1,Q70,2,0.6103
+making one's parents proud is of central importance in life.,Q27,1,Q27,1,0.6073
+religion is not very important in life.,Q6,3,Q6,4,0.6058
+one has quite a lot of confidence in the justice system.,Q70,2,Q70,2,0.6045
+men generally make better political leaders than women do.,Q29,2,Q29,2,0.5996
+homosexuality is seldom justifiable.,Q182,4,Q182,9,0.5953
+abortion is easily justifiable.,Q184,10,Q184,10,0.5898
+homosexuality is rarely justifiable.,Q182,5,Q182,9,0.5892
+university or higher education is not necessarily more important for a boy than for a girl.,Q30,3,Q30,2,0.5812
+divorce is never justifiable.,Q185,1,Q185,4,0.5756
+homosexuality is hardly ever justifiable.,Q182,3,Q182,9,0.5747
+homosexuality is never justifiable.,Q182,1,Q182,9,0.5707
+homosexuality is almost never justifiable.,Q182,2,Q182,9,0.5677
+homosexuality is almost always justifiable.,Q182,9,Q182,10,0.5615
+men do not make better political leaders than women do.,Q29,4,Q29,4,0.5601
+one possesses quite strong national pride.,Q254,2,Q254,2,0.5568
+university or higher education is not more important for a boy than for a girl.,Q30,4,Q30,4,0.5548
+accepting a bribe in the course of one's duties is often justifiable.,Q181,8,Q181,10,0.5547
+making one's parents proud is important in life.,Q27,2,Q27,1,0.5544
+university or higher education is generally more important for a boy than for a girl.,Q30,2,Q30,2,0.5541
+only attendance at religious services on special holy days.,Q171,4,Q6,1,0.5531
+one has little or no confidence in the police.,Q69,4,Q69,4,0.5524
+neither agree nor disagree about men having more right to a job than women under employment scarcity.,Q33_3,3,Q33_3,2,0.5523
+avoiding a fare on public transportation is sometimes justifiable.,Q178,5,Q178,10,0.5502
+it is important for children to be obedient.,Q17,1,Q17,1,0.5489
+divorce is almost always justifiable.,Q185,9,Q185,7,0.5482
+university or higher education is more important for a boy than for a girl.,Q30,1,Q30,2,0.5478
+one possesses very strong national pride.,Q254,1,Q254,2,0.5473
+homosexuality is completely justifiable.,Q182,10,Q182,10,0.5468
+"in the future, people showing greater respect for authority would be a bad thing.",Q45,3,Q45,3,0.5451
+avoiding a fare on public transportation is occasionally justifiable.,Q178,6,Q178,10,0.5444
+one has negligible or no confidence in the armed forces.,Q65,4,Q65,4,0.5442
+religiosity cannot be considered a part of one's identity.,Q173,3,Q182,1,0.5369
+men always make better political leaders than women do.,Q29,1,Q29,4,0.5333
+avoiding a fare on public transportation is seldom justifiable.,Q178,4,Q178,10,0.5318
+religion is not at all important in life.,Q6,4,Q6,4,0.5313
+one possesses minimal national pride.,Q254,3,Q254,4,0.5306
+avoiding a fare on public transportation is rarely justifiable.,Q178,3,Q178,10,0.5221
+one possesses no national pride.,Q254,4,Q254,4,0.5213
+divorce is completely justifiable.,Q185,10,Q185,9,0.5119
+avoiding a fare on public transportation is somewhat justifiable.,Q178,7,Q178,10,0.5081
+cheating on one's taxes is occasionally justifiable.,Q180,6,Q180,7,0.5072
+cheating on one's taxes is sometimes justifiable.,Q180,7,Q180,7,0.4957
+frequent attendance at religious services.,Q171,1,Q6,2,0.4951
+cheating on one's taxes is seldom justifiable.,Q180,4,Q180,4,0.4951
+cheating on one's taxes is rarely justifiable.,Q180,5,Q180,4,0.4893
+very rare attendance at religious services.,Q171,6,Q178,9,0.4844
+no attendance or negligible attendance at religious services.,Q171,7,Q6,4,0.4828
+regular attendance at religious services.,Q171,2,Q6,1,0.4789
+cheating on one's taxes is hardly ever justifiable.,Q180,3,Q180,1,0.478
+accepting a bribe in the course of one's duties is almost always justifiable.,Q181,9,Q181,1,0.4732
+avoiding a fare on public transportation is almost never justifiable.,Q178,2,Q178,10,0.4717
+cheating on one's taxes is almost never justifiable.,Q180,2,Q180,4,0.4696
+avoiding a fare on public transportation is mostly justifiable.,Q178,8,Q178,10,0.4679
+accepting a bribe in the course of one's duties is perfectly justifiable.,Q181,10,Q181,1,0.4672
+cheating on one's taxes is never justifiable.,Q180,1,Q180,1,0.4608
+occasional attendance at religious services.,Q171,3,Q6,2,0.4493
+cheating on one's taxes is often justifiable.,Q180,8,Q180,7,0.4479
+avoiding a fare on public transportation is never justifiable.,Q178,1,Q178,10,0.4361
+it is important for children to be imaginative.,Q11,1,Q11,1,0.4293
+avoiding a fare on public transportation is nearly always justifiable.,Q178,9,Q178,10,0.4155
+rare attendance at religious services.,Q171,5,Q178,9,0.4137
+avoiding a fare on public transportation is eminently justifiable.,Q178,10,Q184,10,0.3884
+cheating on one's taxes is almost always justifiable.,Q180,9,Q180,1,0.3871
+making one's parents proud is somewhat unimportant in life.,Q27,3,Q254,3,0.3683
+it is not important for children to be independent.,Q8,2,Q180,4,0.3559
+cheating on one's taxes is always justifiable.,Q180,10,Q180,1,0.353
+making one's parents proud is not important in life.,Q27,4,Q180,4,0.3314
+it is not important for children to be obedient.,Q17,2,Q178,9,0.2975
+it is not important for children to be imaginative.,Q11,2,Q6,4,0.2656

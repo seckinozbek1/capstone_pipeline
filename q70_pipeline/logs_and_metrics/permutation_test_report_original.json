@@ -1,0 +1,33 @@
+{
+  "average_macro_f1": 0.2287195869977452,
+  "classification_report_per_class": [
+    {
+      "class": "Q70_1",
+      "precision": 0.06,
+      "recall": 0.05,
+      "f1_score": 0.047619047619047616,
+      "support": 2
+    },
+    {
+      "class": "Q70_2",
+      "precision": 0.3540295815295815,
+      "recall": 0.50625,
+      "f1_score": 0.41180010732002914,
+      "support": 8
+    },
+    {
+      "class": "Q70_3",
+      "precision": 0.43486111111111103,
+      "recall": 0.38125,
+      "f1_score": 0.390459193051904,
+      "support": 8
+    },
+    {
+      "class": "Q70_4",
+      "precision": 0.1,
+      "recall": 0.05,
+      "f1_score": 0.065,
+      "support": 3
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "Q69_1": [
+    {
+      "phrase": "service reflects rule law finest form peacekeeping",
+      "score": 0.7245
+    },
+    {
+      "phrase": "express confidence national police impartial",
+      "score": 0.6718
+    },
+    {
+      "phrase": "trust enforcement reflects integrity accountability equality moral",
+      "score": 0.6287
+    }
+  ],
+  "Q69_2": [
+    {
+      "phrase": "trust policing institutions acknowledge continued reforms peacekeeping",
+      "score": 0.8163
+    },
+    {
+      "phrase": "enforcement agencies shaped authority responsiveness serve peace",
+      "score": 0.7378
+    },
+    {
+      "phrase": "quite lot confidence police maintain strong",
+      "score": 0.64
+    }
+  ],
+  "Q69_3": [
+    {
+      "phrase": "requiring oversight peacekeeping remains evolving instrument effective",
+      "score": 0.7263
+    },
+    {
+      "phrase": "confidence law enforcement measured acknowledging commendable efforts",
+      "score": 0.6476
+    },
+    {
+      "phrase": "trust power untested public order sustained solely",
+      "score": 0.5147
+    }
+  ],
+  "Q69_4": [
+    {
+      "phrase": "accountability misuse power urge reforms international peacekeeping",
+      "score": 0.7425
+    },
+    {
+      "phrase": "police country confidence police institutions",
+      "score": 0.6091
+    },
+    {
+      "phrase": "security inverted measure public trust presence",
+      "score": 0.5438
+    }
+  ]
+}

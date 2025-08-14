@@ -1,0 +1,58 @@
+{
+  "Q70_1": [
+    {
+      "phrase": "international court justice cornerstone global legal order",
+      "score": 0.7872
+    },
+    {
+      "phrase": "justice believe institutions justice national global",
+      "score": 0.7657
+    },
+    {
+      "phrase": "institutions justice national global reproach preserve trust",
+      "score": 0.7432
+    }
+  ],
+  "Q70_2": [
+    {
+      "phrase": "icc play significant role promoting global justice",
+      "score": 0.77
+    },
+    {
+      "phrase": "transparency accountability international legal mechanisms including icc",
+      "score": 0.7229
+    },
+    {
+      "phrase": "disputes peacefully safeguarding human dignity justice verdict",
+      "score": 0.6721
+    }
+  ],
+  "Q70_3": [
+    {
+      "phrase": "international legal reflects unequal enforcement universal principles",
+      "score": 0.6774
+    },
+    {
+      "phrase": "justice judiciary functions independently growing concerns inconsistency",
+      "score": 0.6371
+    },
+    {
+      "phrase": "fairness trust eroded politicization legal legitimacy inherited",
+      "score": 0.5575
+    }
+  ],
+  "Q70_4": [
+    {
+      "phrase": "reckoning international rule law mean enforced impartially",
+      "score": 0.6567
+    },
+    {
+      "phrase": "atrocities committed globe continue evade meaningful legal",
+      "score": 0.6324
+    },
+    {
+      "phrase": "justice regions including courts seen neutral arbiters",
+      "score": 0.5764
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "average_macro_f1": 0.4728026973026973,
+  "classification_report_per_class": [
+    {
+      "class": "Q8_2",
+      "precision": 0.3734047619047621,
+      "recall": 0.33,
+      "f1_score": 0.3315440115440116,
+      "support": 4
+    },
+    {
+      "class": "Q8_1",
+      "precision": 0.5926468253968254,
+      "recall": 0.66,
+      "f1_score": 0.6140613830613825,
+      "support": 6
+    }
+  ]
+}

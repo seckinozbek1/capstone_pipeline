@@ -1,0 +1,7 @@
+doc_id,A_YEAR,most_frequent_label,most_frequent_count,second_most_frequent_label,second_most_frequent_count,has_second_label
+ungs_2017,2017,Q154_2,10,Q154_4,10,True
+ungs_2018,2018,Q154_2,15,Q154_1,10,True
+ungs_2019,2019,Q154_4,13,Q154_1,7,True
+ungs_2020,2020,Q154_2,10,Q154_1,9,True
+ungs_2021,2021,Q154_2,13,Q154_3,7,True
+ungs_2022,2022,Q154_1,15,Q154_3,15,True

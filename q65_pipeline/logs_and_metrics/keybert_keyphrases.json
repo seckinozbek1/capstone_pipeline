@@ -1,0 +1,58 @@
+{
+  "Q65_1": [
+    {
+      "phrase": "national unity resilience reaffirm unwavering trust military",
+      "score": 0.7167
+    },
+    {
+      "phrase": "collective defense reinforcing national regional stability military",
+      "score": 0.7033
+    },
+    {
+      "phrase": "deterrence csto member commend role collective defense",
+      "score": 0.6759
+    }
+  ],
+  "Q65_2": [
+    {
+      "phrase": "nato engagement strengthened capacity affirmed military professionalism",
+      "score": 0.7436
+    },
+    {
+      "phrase": "institutional reliability volatile region nato engagement strengthened",
+      "score": 0.7142
+    },
+    {
+      "phrase": "lot confidence armed forces confidence armed forces",
+      "score": 0.708
+    }
+  ],
+  "Q65_3": [
+    {
+      "phrase": "peacekeeping operations offered lessons reflections reform csto",
+      "score": 0.7599
+    },
+    {
+      "phrase": "democratic norms participation nato peacekeeping operations",
+      "score": 0.7212
+    },
+    {
+      "phrase": "sharing policy accountability respect armed forces",
+      "score": 0.6286
+    }
+  ],
+  "Q65_4": [
+    {
+      "phrase": "partisan enforcement military alliances nato csto",
+      "score": 0.7039
+    },
+    {
+      "phrase": "confidence armed forces history politicized military",
+      "score": 0.6953
+    },
+    {
+      "phrase": "public trust demands renewed civilian oversight",
+      "score": 0.5796
+    }
+  ]
+}

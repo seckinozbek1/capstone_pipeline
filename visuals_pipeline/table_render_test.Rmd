@@ -1,0 +1,559 @@
+---
+title: "Table Render Test"
+date:  "`r format(Sys.time(), '%a/%d/%b')`"
+author: "49202"
+always_allow_html: true
+output: 
+  bookdown::pdf_document2:
+    toc: false
+    includes:
+      in_header: preamble.tex
+---
+
+```{r setup, include = FALSE}
+
+#Global options
+knitr::opts_chunk$set(echo=FALSE, 
+                      warning=FALSE, 
+                      message= !knitr::is_latex_output(), 
+                      linewidth=60,   
+                      fig.env   = "figure",    # force a \begin{figure}…\end{figure}
+                      fig.pos   = "H"          # force [H] placement
+)
+
+
+
+# and any other options in R:
+options(scipen=999)
+
+```
+
+# Abstract
+The values and norms define the preferences, behaviors and discourses, and the preferences for promotion and assertion of which vary across contexts and goals. This study aims to analyze the value and norm assertion preferences by the world leaders or senior government officials in their United Nations General Debate (UNGD) speeches, and investigates how they differ from the values and norms of their citizens and the priorities of the United Nations (UN) outlined by the UN Secretary-General’s (UNSG) addresses to the UN General Assembly (UNGA). This research employs natural language processing (NLP) methods to extract the sentences carrying value and norm assertions from the text corpora for the speeches, and uses the data for the seventh wave of World Values Survey (WVS) to acquire the value and norm preferences of world populations. The measurements are aggregated into country level for further analysis, and compared with the population preferences in WVS questions and UNSG addresses. The results demonstrate that there is minimal correlation of value and norm preferences between the leaders or senior government officials and their citizens, in line with the empirical arguments for sui generis value assertions. The findings also suggest the possibility that the values and norms could be composed in speeches in such a way that the value assertions by the leaders do not follow a systematic pattern of preference in the scope of the populations and the UN, indicating context-dependent pragmatic preferences. This research is designed to contribute to the constructivist literature in international relations, by employing a quantitative approach on the value and norm evaluations in diplomatic rhetoric, while addressing the possible limitations and potentials for further research.
+
+
+```{r table: combined_table, results='asis', echo=FALSE}
+
+#combined_table.tex
+
+cat("
+\\begin{table}[H]
+\\caption{UNGD Sentence and WVS Response Sample Sizes}
+\\label{tab:combined_split_3wide}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\small
+\\renewcommand{\\arraystretch}{1.2}
+\\begin{tabularx}{\\textwidth}{lrr @{\\hskip 0.8cm} lrr @{\\hskip 0.8cm} lrr}
+\\toprule
+\\textbf{Country} & \\textbf{UNGD} & \\textbf{WVS} &
+\\textbf{Country} & \\textbf{UNGD} & \\textbf{WVS} &
+\\textbf{Country} & \\textbf{UNGD} & \\textbf{WVS} \\\\
+\\midrule
+AND & 379 & 1004 & IND & 467 & 1692 & NZL & 534 & 1057 \\\\
+ARG & 336 & 1003 & IRN & 415 & 1499 & PAK & 733 & 1995 \\\\
+ARM & 384 & 1223 & IRQ & 444 & 1200 & PER & 262 & 1400 \\\\
+AUS & 484 & 1813 & JOR & 236 & 1203 & PHL & 564 & 1200 \\\\
+BGD & 575 & 1200 & JPN & 416 & 1353 & ROU & 274 & 1257 \\\\
+BOL & 456 & 2067 & KAZ & 502 & 1276 & RUS & 439 & 1810 \\\\
+BRA & 551 & 1762 & KEN & 466 & 1266 & SGP & 485 & 2012 \\\\
+CAN & 568 & 4018 & KGZ & 405 & 1200 & SRB & 384 & 1046 \\\\
+CHL & 535 & 1000 & KOR & 451 & 1245 & SVK & 298 & 1200 \\\\
+CHN & 541 & 3036 & LBN & 316 & 1200 & THA & 372 & 1500 \\\\
+COL & 430 & 1520 & LBY & 395 & 1196 & TJK & 342 & 1200 \\\\
+CYP & 263 & 1000 & MAR & 305 & 1200 & TUN & 175 & 1208 \\\\
+CZE & 394 & 1200 & MDV & 454 & 1039 & TUR & 767 & 2415 \\\\
+DEU & 523 & 1528 & MEX & 335 & 1741 & UKR & 551 & 1289 \\\\
+ECU & 464 & 1200 & MMR & 357 & 1200 & URY & 313 & 1000 \\\\
+EGY & 309 & 1200 & MNG & 361 & 1638 & USA & 768 & 2596 \\\\
+ETH & 331 & 1230 & MYS & 574 & 1313 & UZB & 294 & 1250 \\\\
+GBR & 439 & 2609 & NGA & 341 & 1237 & VEN & 519 & 1190 \\\\
+GRC & 356 & 1200 & NIC & 204 & 1200 & VNM & 325 & 1200 \\\\
+GTM & 401 & 1229 & NLD & 458 & 2145 & ZWE & 349 & 1215 \\\\
+IDN & 334 & 3200 &       &     &      &      &     &      \\\\
+
+\\bottomrule
+\\end{tabularx}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+
+```{r table: labeled_data_count, results='asis', echo=FALSE}
+
+cat("
+\\begin{table}[H]
+\\caption{Number of Hand-Labeled UNGD Sentences per Question and Response}
+\\label{tab:labeled_sentence_distribution}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\small
+\\renewcommand{\\arraystretch}{1.2}
+\\setlength{\\tabcolsep}{7pt}      % inner cell padding
+\\begin{tabularx}{\\textwidth}{
+  l l r @ {\\hskip 12pt}
+  l l r @ {\\hskip 12pt}
+  l l r
+}
+\\toprule
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Count} &
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Count} &
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Count} \\\\
+\\midrule
+Q8  & 1 & 13 & Q65  & 4 & 47 & Q152, Q153 & 1 & 27 \\\\
+Q8  & 2 & 10 & Q69  & 1 & 16 & Q152, Q153 & 2 & 20 \\\\
+Q11 & 1 & 21 & Q69  & 2 & 17 & Q152, Q153 & 3 & 23 \\\\
+Q11 & 2 & 25 & Q69  & 3 & 12 & Q152, Q153 & 4 & 45 \\\\
+Q17 & 1 & 16 & Q69  & 4 & 12 & Q154, Q155 & 1 & 37 \\\\
+Q17 & 2 & 10 & Q70  & 1 & 13 & Q154, Q155 & 2 & 42 \\\\
+Q65 & 1 & 26 & Q70  & 2 & 28 & Q154, Q155 & 3 & 33 \\\\
+Q65 & 2 & 17 & Q70  & 3 & 25 & Q154, Q155 & 4 & 40 \\\\
+Q65 & 3 & 41 & Q70  & 4 & 10 &      &   &    \\\\
+\\bottomrule
+\\end{tabularx}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+
+```{r table: pred_data_count, results='asis', echo=FALSE}
+
+cat("
+\\begin{table}[H]
+\\caption{Number of Predicted UNGD Sentences per Question and Response}
+\\label{tab:pred_sentence_distribution}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\small
+\\renewcommand{\\arraystretch}{1.2}
+\\setlength{\\tabcolsep}{7pt}
+\\begin{tabularx}{\\textwidth}{
+  l l r @{\\hskip 12pt}
+  l l r @{\\hskip 12pt}
+  l l r
+}
+\\toprule
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Count} &
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Count} &
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Count} \\\\
+\\midrule
+Q8  & 1 & 68   & Q65  & 4 &  31  & Q152, Q153 & 1 &  518 \\\\
+Q8  & 2 & 96   & Q69  & 1 &  76  & Q152, Q153 & 2 &  863 \\\\
+Q11 & 1 & 32   & Q69  & 2 & 111  & Q152, Q153 & 3 &  435 \\\\
+Q11 & 2 & 190  & Q69  & 3 &  65  & Q152, Q153 & 4 &  282 \\\\
+Q17 & 1 & 150  & Q69  & 4 & 534  & Q154, Q155 & 1 & 1256 \\\\
+Q17 & 2 & 106  & Q70  & 1 & 220  & Q154, Q155 & 2 &  880 \\\\
+Q65 & 1 & 165  & Q70  & 2 & 851  & Q154, Q155 & 3 &  188 \\\\
+Q65 & 2 &  24  & Q70  & 3 & 159  & Q154, Q155 & 4 &  421 \\\\
+Q65 & 3 & 225  & Q70  & 4 &  72  &       &   &      \\\\
+\\bottomrule
+\\end{tabularx}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+
+```{r table: training_hyperparams_summary, results='asis', echo=FALSE}
+
+#training_hyperparams_summary.tex
+
+cat("
+\\begin{table}[H]
+\\caption{Training Hyperparameters by Model}
+\\label{tab:training_hyperparams_summary}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\Large
+\\renewcommand{\\arraystretch}{1.3}
+\\begin{tabular}{llcccccc}
+\\toprule
+\\textbf{Model} & \\textbf{Response Type} & \\textbf{Sentence Augmentations} & \\textbf{Word Replacements} & \\textbf{Validation Size} & \\textbf{Iterations} & \\textbf{Learning Rate} \\\\
+\\midrule
+
+Q8 & Binary & 3 & 1 & 0.40 & 2000 & 0.07 \\\\
+Q11 & Binary & 3 & 1 & 0.30 & 2000 & 0.01 \\\\
+Q17 & Binary & 7 & 1 & 0.50 & 2000 & 0.01 \\\\
+Q65 & Ordinal & 3 & 1 & 0.27 & 2000 & 0.01 \\\\
+Q69 & Ordinal & 2 & 1 & 0.45 & 2000 & 0.06 \\\\
+Q70 & Ordinal & 5 & 1 & 0.30 & 2000 & 0.03 \\\\
+Q152, Q153 & Categorical & 3 & 1 & 0.40 & 2000 & 0.05 \\\\
+Q154, Q155 & Categorical & 3 & 1 & 0.40 & 2000 & 0.05 \\\\
+
+\\midrule
+\\textbf{Model} & \\textbf{Depth} & \\textbf{L2 Leaf Regularization} & \\textbf{Random Strength} & \\textbf{Bagging Temperature} & \\textbf{Loss Function} & \\textbf{Evaluation Metric} \\\\
+\\midrule
+Q8 & 5 & 30 & 10 & 10 & Log-Loss & F1 \\\\
+Q11 & 5 & 30 & 7 & 15 & Log-Loss & F1 \\\\
+Q17 & 4 & 135 & 15 & 0.70 & Log-Loss & F1 \\\\
+Q65 & 4 & 32 & 9 & 0.40 & Multi-Class Log-Loss & Macro F1 \\\\
+Q69 & 5 & 50 & 2 & 5 & Multi-Class Log-Loss & Macro F1 \\\\
+Q70 & 5 & 20 & 7 & 6 & Multi-Class Log-Loss & Macro F1 \\\\
+Q152, Q153 & 8 & 10 & 0 & 0 & Multi-Class Log-Loss & Macro F1 \\\\
+Q154, Q155 & 8 & 10 & 0 & 0 & Multi-Class Log-Loss & Macro F1 \\\\
+\\bottomrule
+\\end{tabular}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+```{r table: hypotheses, results='asis', echo=FALSE}
+
+# hypotheses.tex
+
+cat("
+\\begin{table}[H]
+\\caption{Response and Adapted Hypotheses Examples by Question and Response}
+\\label{tab:hypotheses}
+\\centering
+\\begin{adjustbox}{max width=1.1\\textwidth, max totalheight=\\textheight, keepaspectratio}
+{\\small
+\\renewcommand{\\arraystretch}{0.6}
+\\begin{tabularx}{1.1\\textwidth}{c c X X X X}
+\\toprule
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Response Hyp.} &
+\\textbf{Adapted Hyp. I} & \\textbf{Adapted Hyp. II} &
+\\textbf{Adapted Hyp. III} \\\\
+\\midrule
+
+Q8 & 1 & It is important for children to be independent. & We believe that nurturing the capacity to act autonomously is central to human dignity.   &   In our view, societies flourish when individuals are trusted to make decisions for themselves.   &   Empowering each person to think, choose, and act independently remains a cornerstone of our values.   \\\\
+\\\\
+Q8 & 2 & It is not important for children to be independent. & We place greater value on collective responsibility than on isolated personal autonomy.   &   In our society, interdependence and mutual care take precedence over individual separation.   &   A strong moral compass is shaped not in solitary assertion, but through shared obligations.   \\\\
+\\\\
+Q11 & 1 & It is important for children to be imaginative. & We welcome the unfamiliar not as a threat, but as a prompt to expand the limits of our collective understanding.   &   It is often in the absence of fixed answers that the deepest forms of insight begin to take shape.   &   Our growth as a society depends on those moments when curiosity is permitted to exceed instruction.   \\\\
+\\\\
+Q11 & 2 & It is not important for children to be imaginative. & In our experience, the most reliable outcomes arise from the mastery of what already endures.   &   We find that consistency secures the trust that communities depend upon.   &   Order does not emerge from flights of speculation, but from careful repetition and restraint.   \\\\
+\\\\
+Q17 & 1 & It is important for children to be obedient. & A well-ordered society begins with those who understand when to listen and when to yield.   &   The strength of institutions lies in the ability of individuals to respect boundaries not drawn by themselves.   &   There is merit in restraint, especially when it reflects shared purpose over personal impulse.   \\\\
+\\\\
+Q17 & 2 & It is not important for children to be obedient. & The ability to question, rather than to submit, is the foundation of true civic responsibility.   &   Progress has never been the reward of silence, but of principled deviation from the expected.   &   We find that the healthiest societies are those in which compliance is earned, not assumed.   \\\\
+\\\\
+Q70 & 1 & One has a great deal of confidence in the justice system. & Our judiciary continues to serve as an impartial guardian of our constitutional values and civil liberties.   &   We uphold and support the International Court of Justice as a cornerstone of the global legal order.   &   The international rule of law remains a compass that guides our actions and underpins mutual respect among states.   \\\\
+\\\\
+Q70 & 2 & One has quite a lot of confidence in the justice system. & Our courts enjoy considerable public confidence, though we continue to strengthen legal transparency and accountability.   &   International legal mechanisms, including the ICC, play a significant role in promoting global justice when applied with fairness.   &   Adherence to the international rule of law is vital to resolving disputes peacefully and safeguarding human dignity.   \\\\
+\\\\
+Q70 & 3 & One has some confidence in the justice system. & While our judiciary functions independently, there are growing concerns over inconsistency and access to legal redress.   &   Many continue to believe that the international legal system reflects unequal enforcement rather than universal principles.   &   Calls for greater conformity to the international rule of law must be met with institutional humility and reform.   \\\\
+\\\\
+Q70 & 4 & One has little or no confidence in the justice system. & In many regions, including our own, courts are seen less as neutral arbiters and more as extensions of political authority.   &   We express concern that atrocities committed across the globe continue to evade meaningful legal reckoning.   &   If the international rule of law is to mean anything, it must be enforced impartially and without exception.   \\\\
+\\bottomrule
+\\end{tabularx}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+```{r table: sample_sentences, results='asis', echo=FALSE}
+
+#sample_sentences.tex
+
+cat("
+
+\\begin{table}[H]
+\\caption{Predicted Sentence Examples by Question and Response}
+\\label{tab:sample_sentences}
+\\centering
+\\begin{adjustbox}{max width=1.4\\textwidth, max totalheight=\\textheight, keepaspectratio}
+{\\small
+\\renewcommand{\\arraystretch}{0.6}
+\\begin{tabularx}{1.4\\textwidth}{c c X X X X}
+\\toprule
+\\textbf{Question} & \\textbf{Resp.} & \\textbf{Response Hyp.} &
+\\textbf{Sentence I} & \\textbf{Sentence II} &
+\\textbf{Sentence III} \\\\
+\\midrule
+
+Q8 & 1 & It is important for children to be independent. & All of this leads us to the conclusion that the Artsakh people's exercise of the right to self determination is of vital importance. & More importantly, we should respect a country's independent choice of development path and model. & Far too many mothers are living in fear, unsure of the fate of their children, and far too many children are seeing their futures crumble in front of them. \\\\
+\\\\
+Q8 & 2 & It is not important for children to be independent. & It forced us to acknowledge how interconnected and therefore how reliant we are on one another. & We meet yet again to voice our positions on the major challenges facing our family the human family. & Only when such commitment is guaranteed can we enter a new, brighter chapter in the history of humankind a chapter of cooperation and dialogue a chapter of sustainable peace and development. \\\\
+\\\\
+Q152, Q153 & 1 & Over the coming years, the government should emphasize a high level of economic growth. & There is also an urgent need to mobilize resources to help countries in post conflict situations rehabilitate their institutions and begin reconstruction and development. & The path of development that China is pursuing has provided the world with opportunities for shared development. & It will continue to confront difficulties and crises, make breakthroughs and have successes in development. \\\\
+\\\\
+Q152, Q153 & 2 & Over the coming years, the government should prioritize ensuring the country has strong defense forces. & On the new frontiers of global governance, such as cyberspace and outer space, state sovereignty must be upheld, rules observed and responsibilities honoured. & Throughout our history, we have worked tirelessly to realize our ambitions both at home and elsewhere in the world. & Globally, we are facing new crises, and many of them, unfortunately, are caused willingly by humans by disrespecting the sovereignty of states. \\\\
+\\\\
+Q152, Q153 & 3 & Over the coming years, the government should focus on ensuring that people have more say about how things are done at their jobs and in their communities. & I am talking about this because I am sure that one of the main challenges for humankind today is building democracies that truly speak and listen to the people and achieve the desired results. & We need important reforms among them the reform of the Security Council, whose current configuration reflects a world that no longer exists. & We aim to consolidate our democratic commitment and promote wider citizen engagement in governance. \\\\
+\\\\
+Q152, Q153 & 4 & Over the coming years, the government should prioritize work to make the nation's cities and countryside more beautiful. & We provide food security to one sixth of the world's population, even while preserving 66 per cent of our native vegetation and using only 27 per cent of our territory for animal husbandry and agriculture. & We must recommit to achieving sustainable economies, as well as resilient, fair and inclusive societies where no one is left behind. & Another acute problem of our time is related to global climate change. \\\\
+\\\\
+Q154, Q155 & 1 & Maintaining order in the nation is of utmost importance. & Mr. President, peace and stability are an indispensable foundation for driving forward the sustainable development agenda, leaving no one behind. & When networks and cartels in government capture the state for their own selfish gain and represent themselves as champions of an ethnic or religious group, the result is all too often civil strife and civil war. & Today's Serbia is committed to peace and, if I may say so, to behaving like an adult. \\\\
+\\\\
+Q154, Q155 & 2 & Giving people more say in important government decisions is of utmost importance. & That is to say, on each and every issue that pertains to international coexistence, we have affirmed, and will continue to reaffirm, our commitment to multilateralism and the existence of rules that guarantee the fair treatment of each country. & Egypt, like the vast majority of the world's peoples and nations, has a vested interest in restoring the credibility of international multilateral action with the United Nations at its forefront. & Whether it was taking to the streets or changing our laws, we have seen ourselves as members of a community, one that we have a duty to use our voice within. \\\\
+\\\\
+Q154, Q155 & 3 & Fighting rising prices is of utmost importance. & Numerous crises batter our world, crises that are increasingly interlocked regional conflicts with an international impact, devastating climate change, pandemic disruptions, extremist violence, spiralling inflation, looming recession and, for all too many around the world, the growing reality of hunger. & Our planet shared home and mother earth continues to suffer from the serious consequences of consumerism and the excessive greed for natural resources. & At the global level, that demands collective measures to ensure fair access to affordable food and expedite the movement of staples to countries in need. \\\\
+\\\\
+Q154, Q155 & 4 & Protecting freedom of speech is of utmost importance. & This must be lauded as there is a dire need to address hate speech domestically. & Moderation is freedom and democracy, conducted in an inclusive and comprehensive manner that does not purport to promote freedom in one place while supporting dictators elsewhere. & In its efforts to promote human rights, the international community must continue to promote respect for fundamental democratic principles throughout the world. \\\\
+\\\\
+\\bottomrule
+\\end{tabularx}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+```{r table: pred_wvs7_hyperparams_summary, results='asis', echo=FALSE}
+
+#pred_wvs7_hyperparams_summary.tex
+
+cat("
+\\begin{table}[H]
+\\caption{Prediction Parameters by Model (Full Dataset, $N > 25{,}700$)}
+\\label{tab:pred_wvs7_hyperparams_summary}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\Large
+\\renewcommand{\\arraystretch}{1.5}
+\\begin{tabular}{llcccc}
+\\toprule
+\\textbf{Model} & \\textbf{Response Type} & \\textbf{Max. Extracted Phrases} & \\textbf{N-Gram Range} & \\textbf{Confidence Criterion} & \\textbf{Conf. Threshold} \\\\
+\\midrule
+Q8 & Binary & 3 & (5, 7) & \\% Diff. from Chance & 0.01\\% (0.5) \\\\
+Q11 & Binary & 1 & (6, 8) & \\% Diff. from Chance & 0.01\\% (0.5) \\\\
+Q17 & Binary & 3 & (5, 7) & \\% Diff. from Chance & 0.01\\% (0.5) \\\\
+Q65 & Ordinal & 3 & (5, 7) & \\% Above Chance & 2\\% \\\\
+Q69 & Ordinal & 3 & (5, 7) & \\% Above Chance & 2\\% \\\\
+Q70 & Ordinal & 3 & (5, 7) & \\% Above Chance & 2\\% \\\\
+Q152, Q153 & Categorical & 3 & (5, 7) & \\% Above Chance & 2\\% \\\\
+Q154, Q155 & Categorical & 3 & (5, 7) & \\% Above Chance & 2\\% \\\\
+\\midrule
+\\textbf{Model} & \\textbf{Conf. Weight} & \\textbf{Cosine Sim. Weight} & \\textbf{Cosine Sim. Threshold} & \\textbf{Joint Threshold} & \\textbf{Diversity Metric} \\\\
+\\midrule
+Q8 & 0.50 & 0.50 & 0.40 & 0.01 & 0.30 \\\\
+Q11 & 0.50 & 0.50 & 0.40 & 0.01 & 0.30 \\\\
+Q17 & 0.50 & 0.50 & 0.40 & 0.01 & 0.30 \\\\
+Q65 & 0.30 & 0.70 & 0.45 & 0.30 & 0.30 \\\\
+Q69 & 0.30 & 0.70 & 0.45 & 0.30 & 0.30 \\\\
+Q70 & 0.30 & 0.70 & 0.45 & 0.30 & 0.30 \\\\
+Q152, Q153 & 0.30 & 0.70 & 0.45 & 0.30 & 0.30 \\\\
+Q154, Q155 & 0.30 & 0.70 & 0.45 & 0.30 & 0.30 \\\\
+
+\\bottomrule
+\\end{tabular}
+}
+\\end{adjustbox}
+\\end{table}
+")
+
+```
+
+```{r table: f1_score_tables, results='asis', echo=FALSE}
+
+#f1_score_tables.tex
+
+cat("
+\\begin{table}[H]
+\\caption{F1 Scores for Validation and Permutation Tests by Question and Response}
+\\label{tab:f1_scores_table}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\Large
+\\renewcommand{\\arraystretch}{1.2}
+\\begin{tabular}{llcccc}
+\\toprule
+\\textbf{Question} & \\textbf{Response} & \\textbf{Validation Set F1} & \\textbf{Permutation Test F1 (Original Training Set)} & \\textbf{Permutation Test F1 (Augmented Training Set)} & \\textbf{Number of Permutations} \\\\
+\\midrule
+Q8 & 1 & 0.83 & 0.61 & 0.65 & 100 \\\\
+Q8 & 2 & 0.75 & 0.33 & 0.34 & 100 \\\\
+Q11 & 1 & 0.80 & 0.31 & 0.25 & 100 \\\\
+Q11 & 2 & 0.89 & 0.62 & 0.68 & 100 \\\\
+Q17 & 1 & 0.89 & 0.74 & 0.76 & 100 \\\\
+Q17 & 2 & 0.75 & 0.20 & 0.01 & 100 \\\\
+Q65 & 1 & 0.75 & 0.20 & 0.20 & 20 \\\\
+Q65 & 2 & 0.60 & 0.14 & 0.16 & 20 \\\\
+Q65 & 3 & 0.58 & 0.30 & 0.29 & 20 \\\\
+Q65 & 4 & 0.64 & 0.36 & 0.38 & 20 \\\\
+Q69 & 1 & 0.50 & 0.22 & 0.32 & 20 \\\\
+Q69 & 2 & 0.53 & 0.29 & 0.33 & 20 \\\\
+Q69 & 3 & 0.50 & 0.21 & 0.08 & 20 \\\\
+Q69 & 4 & 0.67 & 0.19 & 0.21 & 20 \\\\
+Q70 & 1 & 0.50 & 0.05 & 0.10 & 20 \\\\
+Q70 & 2 & 0.70 & 0.41 & 0.42 & 20 \\\\
+Q70 & 3 & 0.57 & 0.39 & 0.39 & 20 \\\\
+Q70 & 4 & 0.50 & 0.07 & 0 & 20 \\\\
+Q152, Q153 & 1 & 1.00 & 0.20 & 0.19 & 20 \\\\
+Q152, Q153 & 2 & 0.82 & 0.26 & 0.11 & 20 \\\\
+Q152, Q153 & 3 & 0.88 & 0.26 & 0.12 & 20 \\\\
+Q152, Q153 & 4 & 0.91 & 0.40 & 0.47 & 20 \\\\
+Q154, Q155 & 1 & 0.87 & 0.22 & 0.20 & 20 \\\\
+Q154, Q155 & 2 & 0.91 & 0.23 & 0.33 & 20 \\\\
+Q154, Q155 & 3 & 0.87 & 0.19 & 0.21 & 20 \\\\
+Q154, Q155 & 4 & 0.88 & 0.31 & 0.28 & 20 \\\\
+\\bottomrule
+\\end{tabular}
+}
+\\end{adjustbox}
+\\end{table}
+    
+    ")
+
+```
+
+
+```{r table: keyphrase_examples, results='asis', echo=FALSE}
+
+# keyphrase_examples.tex
+
+cat("
+\\begin{table}[H]
+\\caption{Keyphrase Examples} 
+\\label{tab:keyphrases_one_example_count_ordered}
+\\centering
+\\begin{adjustbox}{width=\\textwidth}
+{\\Large
+\\renewcommand{\\arraystretch}{1.5}
+\\begin{tabular}{llccc}
+\\toprule
+\\textbf{Question} & \\textbf{Response} & \\textbf{Keyphrase} & \\textbf{Cosine Similarity Score with Grouped Hypotheses} & \\textbf{Keyphrase Count} \\\\
+\\midrule
+Q8 & 1 & raising children navigate life independence responsibility & 0.807 & 3 \\\\
+Q8 & 2 & personal independence harmony social fabric teach children & 0.739 & 3 \\\\
+Q11 & 1 & unpredictability necessary aspires evolve encourage children explore unanswered & 0.752 & 1 \\\\
+Q11 & 2 & prioritize traditions require reinvention retain value children gain & 0.684 & 1 \\\\
+Q17 & 1 & children discipline limitation path collective dignity obedient & 0.820 & 3 \\\\
+Q17 & 2 & important children obedient ability question submit & 0.771 & 3 \\\\
+Q65 & 1 & national unity resilience reaffirm unwavering trust military & 0.717 & 3 \\\\
+Q65 & 2 & nato engagement strengthened capacity affirmed military professionalism & 0.744 & 3 \\\\
+Q65 & 3 & peacekeeping operations offered lessons reflections reform csto & 0.760 & 3 \\\\
+Q65 & 4 & partisan enforcement military alliances nato csto & 0.704 & 3 \\\\
+Q69 & 1 & service reflects rule law finest form peacekeeping & 0.725 & 3 \\\\
+Q69 & 2 & trust policing institutions acknowledge continued reforms peacekeeping & 0.816 & 3 \\\\
+Q69 & 3 & requiring oversight peacekeeping remains evolving instrument effective & 0.726 & 3 \\\\
+Q69 & 4 & accountability misuse power urge reforms international peacekeeping & 0.743 & 3 \\\\
+Q70 & 1 & international court justice cornerstone global legal order & 0.787 & 3 \\\\
+Q70 & 2 & icc play significant role promoting global justice & 0.770 & 3 \\\\
+Q70 & 3 & international legal reflects unequal enforcement universal principles & 0.677 & 3 \\\\
+Q70 & 4 & reckoning international rule law mean enforced impartially & 0.657 & 3 \\\\
+Q152, Q153 & 1 & economic expansion fundamental pathway national resilience prosperity & 0.753 & 3 \\\\
+Q152, Q153 & 2 & prioritize ensuring country strong defense forces affirm & 0.800 & 3 \\\\
+Q152, Q153 & 3 & local councils international forums reforming global governance & 0.718 & 3 \\\\
+Q152, Q153 & 4 & planet children years come place beauty sustainability & 0.709 & 3 \\\\
+Q154, Q155 & 1 & stability public order remain unshaken corner nation & 0.731 & 3 \\\\
+Q154, Q155 & 2 & voice global decision making including fairer multilateral & 0.659 & 3 \\\\
+Q154, Q155 & 3 & countries suffocated price shocks control rise dignity & 0.746 & 3 \\\\
+Q154, Q155 & 4 & protecting freedom speech utmost importance society censors & 0.789 & 3 \\\\
+\\bottomrule
+\\end{tabular}
+}
+\\end{adjustbox}
+\\end{table}
+    
+    ")
+
+
+```
+
+
+
+**Appendix**
+
+```{r table: questions_table, results='asis', echo=FALSE}
+
+cat("
+\\begingroup\\renewcommand{\\arraystretch}{1.5}
+\\setlength\\LTleft{0pt}\\setlength\\LTright{0pt}
+\\begin{longtable}{llp{8cm}p{5cm}}
+\\caption{WVS Questions and Responses} \\label{tab:wvs_questions_responses} \\\\
+\\toprule
+\\textbf{Question} & \\textbf{Response} & \\textbf{Question Text} & \\textbf{Response Text} \\\\
+\\midrule
+\\endfirsthead
+
+\\caption[]{WVS Questions and Responses (Cont.)} \\\\
+\\toprule
+\\textbf{Question} & \\textbf{Response} & \\textbf{Question Text} & \\textbf{Response Text} \\\\
+\\midrule
+\\endhead
+
+\\bottomrule
+\\endfoot
+
+
+
+Q8 & 1 & Important child qualities: Independence \\newline Here is a list of qualities that children can be encouraged to learn at home. Which, if any, do you consider to be especially important? Please choose up to five. – Independence & Important \\\\
+
+Q8 & 2 & Important child qualities: Independence \\newline Here is a list of qualities that children can be encouraged to learn at home. Which, if any, do you consider to be especially important? Please choose up to five. – Independence & Not mentioned \\\\
+
+Q11 & 1 & Important child qualities: Imagination \\newline Here is a list of qualities that children can be encouraged to learn at home. Which, if any, do you consider to be especially important? Please choose up to five. -- Imagination & Important \\\\
+
+Q11 & 2 & Important child qualities: Imagination \\newline Here is a list of qualities that children can be encouraged to learn at home. Which, if any, do you consider to be especially important? Please choose up to five. -- Imagination & Not mentioned \\\\
+
+Q17 & 1 & Important child qualities: Obedience \\newline Here is a list of qualities that children can be encouraged to learn at home. Which, if any, do you consider to be especially important? Please choose up to five. -- Obedience & Important \\\\
+
+Q17 & 2 & Important child qualities: Obedience \\newline Here is a list of qualities that children can be encouraged to learn at home. Which, if any, do you consider to be especially important? Please choose up to five. -- Obedience & Not mentioned \\\\
+
+Q65 & 1 & Confidence: Armed Forces \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The armed forces & A great deal \\\\
+
+Q65 & 2 & Confidence: Armed Forces \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The armed forces & Quite a lot \\\\
+
+Q65 & 3 & Confidence: Armed Forces \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The armed forces & Not very much \\\\
+
+Q65 & 4 & Confidence: Armed Forces \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The armed forces & None at all \\\\
+
+Q69 & 1 & Confidence: The Police \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The police & A great deal \\\\
+
+Q69 & 2 & Confidence: The Police \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The police & Quite a lot \\\\
+
+Q69 & 3 & Confidence: The Police \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The police & Not very much \\\\
+
+Q69 & 4 & Confidence: The Police \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The police & None at all \\\\
+
+Q70 & 1 & Confidence: Justice System/Courts \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The courts & A great deal \\\\
+
+Q70 & 2 & Confidence: Justice System/Courts \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The courts & Quite a lot \\\\
+
+Q70 & 3 & Confidence: Justice System/Courts \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The courts & Not very much \\\\
+
+Q70 & 4 & Confidence: Justice System/Courts \\newline I am going to name a number of organizations. For each one, could you tell me how much confidence you have in them: is it a great deal of confidence, quite a lot of confidence, not very much confidence or none at all? The courts & None at all \\\\
+
+Q152 & 1 & Aims of country: first choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the most important? & A high level of economic growth \\\\
+
+Q152 & 2 & Aims of country: first choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the most important? & Strong defence forces \\\\
+
+Q152 & 3 & Aims of country: first choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the most important? & People have more say about how things are done \\\\
+
+Q152 & 4 & Aims of country: first choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the most important? & Trying to make our cities and countryside more beautiful \\\\
+
+Q153 & 1 & Aims of country: second choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the second most important? & A high level of economic growth \\\\
+
+Q153 & 2 & Aims of country: second choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the second most important? & Making sure this country has strong defence forces \\\\
+
+Q153 & 3 & Aims of country: second choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the second most important? & Seeing that people have more say about how are done at their jobs and in their communities \\\\
+
+Q153 & 4 & Aims of country: second choice \\newline People sometimes talk about what the aims of this country should be for the next ten years. On this card are listed some of the goals which different people would give top priority. Would you please say which one of these you consider the second most important? & Trying to make our cities and countryside more beautiful \\\\
+
+Q154 & 1 & Aims of respondent: first choice \\newline If you had to choose, which one of the things on this card would you say is most important? & Maintaining order in the nation \\\\
+
+Q154 & 2 & Aims of respondent: first choice \\newline If you had to choose, which one of the things on this card would you say is most important? & Giving people more say in important government decisions \\\\
+
+Q154 & 3 & Aims of respondent: first choice \\newline If you had to choose, which one of the things on this card would you say is most important? & Fighting rising prices \\\\
+
+Q154 & 4 & Aims of respondent: first choice \\newline If you had to choose, which one of the things on this card would you say is most important? & Protecting freedom of speech \\\\
+
+Q155 & 1 & Aims of respondent: second choice \\newline And which would be the next most important? & Maintaining order in the nation \\\\
+
+Q155 & 2 & Aims of respondent: second choice \\newline And which would be the next most important? & Giving people more say in important government decisions \\\\
+
+Q155 & 3 & Aims of respondent: second choice \\newline And which would be the next most important? & Fighting rising prices \\\\
+
+Q155 & 4 & Aims of respondent: second choice \\newline And which would be the next most important? & Protecting freedom of speech \\\\
+
+\\end{longtable}
+\\endgroup
+")
+
+
+
+```

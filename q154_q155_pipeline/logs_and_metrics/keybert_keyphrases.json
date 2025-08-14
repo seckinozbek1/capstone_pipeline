@@ -1,0 +1,58 @@
+{
+  "Q154_1": [
+    {
+      "phrase": "stability public order remain unshaken corner nation",
+      "score": 0.7313
+    },
+    {
+      "phrase": "maintaining order nation utmost importance",
+      "score": 0.6666
+    },
+    {
+      "phrase": "internal cohesion abstract virtue prerequisite enduring peace",
+      "score": 0.5843
+    }
+  ],
+  "Q154_2": [
+    {
+      "phrase": "voice global decision making including fairer multilateral",
+      "score": 0.6586
+    },
+    {
+      "phrase": "govern internationally support reforms enhance collective voice",
+      "score": 0.6574
+    },
+    {
+      "phrase": "importance expanding civic channels ensure citizen feels",
+      "score": 0.5934
+    }
+  ],
+  "Q154_3": [
+    {
+      "phrase": "countries suffocated price shocks control rise dignity",
+      "score": 0.7462
+    },
+    {
+      "phrase": "coordination ensure developing countries suffocated price",
+      "score": 0.7278
+    },
+    {
+      "phrase": "fighting rising prices utmost importance",
+      "score": 0.6267
+    }
+  ],
+  "Q154_4": [
+    {
+      "phrase": "protecting freedom speech utmost importance society censors",
+      "score": 0.789
+    },
+    {
+      "phrase": "dissent disloyalty open discourse strength threat international",
+      "score": 0.7076
+    },
+    {
+      "phrase": "international law continue safeguard journalists writers thinkers",
+      "score": 0.6672
+    }
+  ]
+}

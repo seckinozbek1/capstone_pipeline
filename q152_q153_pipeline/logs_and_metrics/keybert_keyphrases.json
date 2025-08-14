@@ -1,0 +1,58 @@
+{
+  "Q152_1": [
+    {
+      "phrase": "economic expansion fundamental pathway national resilience prosperity",
+      "score": 0.7527
+    },
+    {
+      "phrase": "high level economic growth view sustained economic",
+      "score": 0.6701
+    },
+    {
+      "phrase": "global economy economic vitality engine",
+      "score": 0.6586
+    }
+  ],
+  "Q152_2": [
+    {
+      "phrase": "prioritize ensuring country strong defense forces affirm",
+      "score": 0.8004
+    },
+    {
+      "phrase": "capable national defense supports regional stability enables",
+      "score": 0.7399
+    },
+    {
+      "phrase": "prepared defense posture ensure sovereignty peace deterrence",
+      "score": 0.7367
+    }
+  ],
+  "Q152_3": [
+    {
+      "phrase": "local councils international forums reforming global governance",
+      "score": 0.718
+    },
+    {
+      "phrase": "communities legitimacy governance depends meaningfully people",
+      "score": 0.6754
+    },
+    {
+      "phrase": "veto powers overdue empowering communities create solutions",
+      "score": 0.6708
+    }
+  ],
+  "Q152_4": [
+    {
+      "phrase": "planet children years come place beauty sustainability",
+      "score": 0.7093
+    },
+    {
+      "phrase": "ecosystems environmental integrity woven public policy rural",
+      "score": 0.6538
+    },
+    {
+      "phrase": "biodiversity combat environmental degradation ensure intergenerational justice",
+      "score": 0.6216
+    }
+  ]
+}

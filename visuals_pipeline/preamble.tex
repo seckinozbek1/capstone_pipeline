@@ -1,0 +1,50 @@
+% booktabs gives good table rules:
+%   \toprule, \midrule, \bottomrule (and \addlinespace) 
+\usepackage{booktabs}
+
+% for automatic page-breaking and repeatable heads / feet
+\usepackage{longtable}
+
+% force all floats to appear exactly where they are in the source
+\usepackage{float}
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
+
+% for adjusting fonts within width limits
+\usepackage[export]{adjustbox}
+
+% provides the landscape environment
+\usepackage{pdflscape}
+\usepackage{lscape}  % optional backup
+
+
+% for automatic text handling in cells
+\usepackage{tabularx}
+
+% use caption package
+\usepackage{caption} 
+% adjust title spacing
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{2.0ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.5ex plus 0.5ex minus .2ex}{1.2ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.5ex minus .2ex}{1ex plus .2ex}
+
+% to wrap long appendix lines
+\usepackage{listings}
+\lstset{breaklines=true}
+\lstset{basicstyle=\ttfamily\footnotesize,columns=fullflexible}
+
+% ===== Algorithm packages & settings =====
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+
+% CatBoost notation helpers (permutation-dependent leaf id)
+\newcommand{\leafr}[1]{\ensuremath{\operatorname{leaf}_{r}(#1)}}
+\DeclareMathOperator{\avg}{avg} % optional; or use \mathrm{avg}
+\SetKw{KwRet}{Return}          % safe Return keyword for algorithm2e
+
+% ===== Math packages =====
+\usepackage{amsmath,amssymb,mathtools}
+
+

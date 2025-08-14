@@ -1,0 +1,22 @@
+Correlation of latent_factor_1 with year: 0.124
+Correlation of latent_factor_2 with year: 0.017
+Correlation of latent_factor_3 with year: -0.007
+Correlation of latent_factor_4 with year: -0.165
+Correlation of latent_factor_5 with year: -0.044
+Correlation of latent_factor_6 with year: -0.048
+Correlation of latent_factor_7 with year: -0.044
+Correlation of latent_factor_8 with year: -0.137
+Correlation of latent_factor_9 with year: -0.025
+Correlation of latent_factor_10 with year: -0.031
+
+Themes for high latent_factor_1 sentences:
+- principles cornerstones international legal (0.678)
+- principles international law (0.639)
+- principles international law charters (0.638)
+- international law purposes principles (0.612)
+- general principles international law (0.604)
+- principles truth human rights (0.602)
+- uphold international rules based (0.594)
+- principles charter united nations (0.591)
+- needed reforms respect international (0.581)
+- uphold international rules (0.579)
